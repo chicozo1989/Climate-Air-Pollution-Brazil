@@ -11,7 +11,7 @@
 ##############
 
 ### Open the dataset
-setwd("C:/Users/Micro/Documents/FGV/REGIÕES")
+setwd("C:/Users/Micro/Documents/FGV/REGIÃ•ES")
 data <- readRDS("SE.rds")
 
 region = "Southeast"  # Change the region name here according to the dataset opened above
@@ -58,9 +58,9 @@ for(i in pollution){
       return(coef(fit))
     }
     
-    # Run Bootstrapping with 100 replications 
+    # Run Bootstrapping with 1000 replications 
     results_unadjusted <- boot(data = data_4, statistic = rsq,
-                               R=100, formula = data_4[[i]] ~ Year)
+                               R=1000, formula = data_4[[i]] ~ Year)
     
   
    
@@ -100,7 +100,7 @@ for(i in pollution){
 results
 
 # Save the outcome as CSV
-setwd("C:/Users/Micro/Documents/FGV/REGIÕES")
+setwd("C:/Users/Micro/Documents/FGV/REGIÃ•ES")
 name <- paste("Bootstrap_climate_",region,".csv", sep="") 
 write.csv(results, file=name, row.names=FALSE)
 
